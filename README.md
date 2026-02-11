@@ -16,7 +16,7 @@
 
 ### Prerequisites
 
-- Node.js >= 18.x
+- Node.js v20.12.0 (use `nvm use` to auto-switch via `.nvmrc`)
 - npm >= 9.x
 - Xcode (for iOS development)
 - Android Studio (for Android development)
@@ -27,23 +27,35 @@
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/your-org/caliente-frontend.git
+git clone https://github.com/WMDD-Capstone/caliente-frontend.git
 cd caliente-frontend
 ```
 
-2. **Install dependencies**
+2. **Set Node version**
+
+```bash
+nvm use
+```
+
+This will automatically use the correct Node version from `.nvmrc`. If you don't have it installed:
+
+```bash
+nvm install 20.12.0
+```
+
+3. **Install dependencies**
 
 ```bash
 npm install
 ```
 
-3. **Install iOS dependencies**
+4. **Install iOS dependencies**
 
 ```bash
 cd ios && pod install && cd ..
 ```
 
-4. **Set up environment variables**
+5. **Set up environment variables**
 
 ```bash
 cp .env.example .env
@@ -56,14 +68,16 @@ API_BASE_URL=http://localhost:3000/api
 API_KEY=your_api_key_here
 ```
 
-5. **Run the app**
+6. **Run the app**
 
 **iOS:**
+
 ```bash
 npm run ios
 ```
 
 **Android:**
+
 ```bash
 npm run android
 ```
@@ -123,3 +137,5 @@ npm test               # Run tests
 - **React Query** - Server state management
 - **Vision Camera** - Camera functionality
 - **TypeScript** - Type safety
+- **MediaPipe** - Face landmark detection (native module)
+- **React Native Compressor** - Video compression
