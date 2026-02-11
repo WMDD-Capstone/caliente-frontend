@@ -27,23 +27,10 @@ function TabNavigator() {
         headerShown: false,
         tabBarStyle: { backgroundColor: 'white', height: 60, paddingBottom: 10 },
         tabBarActiveTintColor: '#EF4444',
-      }}
-    >
-      <Tab.Screen 
-        name="Home" 
-        component={HomeScreen} 
-        options={{ title: '홈' }} 
-      />
-      <Tab.Screen 
-        name="Record" 
-        component={RecordScreen} 
-        options={{ title: '측정/녹화' }} 
-      />
-      <Tab.Screen 
-        name="Profile" 
-        component={ProfileScreen} 
-        options={{ title: '프로필' }} 
-      />
+      }}>
+      <Tab.Screen name="Home" component={HomeScreen} options={{ title: '홈' }} />
+      <Tab.Screen name="Record" component={RecordScreen} options={{ title: '측정/녹화' }} />
+      <Tab.Screen name="Profile" component={ProfileScreen} options={{ title: '프로필' }} />
     </Tab.Navigator>
   );
 }

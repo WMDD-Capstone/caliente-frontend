@@ -1,5 +1,5 @@
 import './global.css';
-import React, {useEffect, useState, useRef} from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {
   View,
   Text,
@@ -15,19 +15,19 @@ import {
   PhotoFile,
 } from 'react-native-vision-camera';
 
-const {FaceLandmarkerModule} = NativeModules;
+const { FaceLandmarkerModule } = NativeModules;
 
 type BlendshapeData = Record<string, number>;
 
 type FaceResult = {
   detected: boolean;
   landmarkCount: number;
-  landmarks: Array<{index: number; x: number; y: number; z: number}>;
+  landmarks: Array<{ index: number; x: number; y: number; z: number }>;
   blendshapes: BlendshapeData;
 };
 
 function App(): React.JSX.Element {
-  const {hasPermission, requestPermission} = useCameraPermission();
+  const { hasPermission, requestPermission } = useCameraPermission();
   const device = useCameraDevice('front');
   const cameraRef = useRef<Camera>(null);
   const [isActive, setIsActive] = useState(true);
@@ -43,7 +43,9 @@ function App(): React.JSX.Element {
   }, [hasPermission, requestPermission]);
 
   const captureAndDetect = async () => {
-    if (!cameraRef.current) return;
+    if (!cameraRef.current) {
+      return;
+    }
 
     try {
       const photo: PhotoFile = await cameraRef.current.takePhoto({
@@ -84,16 +86,20 @@ function App(): React.JSX.Element {
   };
 
   const getSmileScore = (): number => {
-    if (!faceResult?.blendshapes) return 0;
-    const left = faceResult.blendshapes['mouthSmileLeft'] || 0;
-    const right = faceResult.blendshapes['mouthSmileRight'] || 0;
+    if (!faceResult?.blendshapes) {
+      return 0;
+    }
+    const left = faceResult.blendshapes.mouthSmileLeft || 0;
+    const right = faceResult.blendshapes.mouthSmileRight || 0;
     return Math.round(((left + right) / 2) * 100);
   };
 
   const getEyeOpenScore = (): number => {
-    if (!faceResult?.blendshapes) return 0;
-    const left = faceResult.blendshapes['eyeBlinkLeft'] || 0;
-    const right = faceResult.blendshapes['eyeBlinkRight'] || 0;
+    if (!faceResult?.blendshapes) {
+      return 0;
+    }
+    const left = faceResult.blendshapes.eyeBlinkLeft || 0;
+    const right = faceResult.blendshapes.eyeBlinkRight || 0;
     return Math.round((1 - (left + right) / 2) * 100);
   };
 
@@ -101,9 +107,15 @@ function App(): React.JSX.Element {
     const smile = getSmileScore();
     const eyeOpen = getEyeOpenScore();
 
-    if (smile > 60) return '😊 Happy';
-    if (eyeOpen < 30) return '😑 Eyes Closed';
-    if (smile < 10) return '😐 Neutral';
+    if (smile > 60) {
+      return '😊 Happy';
+    }
+    if (eyeOpen < 30) {
+      return '😑 Eyes Closed';
+    }
+    if (smile < 10) {
+      return '😐 Neutral';
+    }
     return '🙂 Relaxed';
   };
 
@@ -150,10 +162,7 @@ function App(): React.JSX.Element {
         <View style={styles.overlay}>
           <View style={styles.statusBadge}>
             <View
-              style={[
-                styles.statusDot,
-                {backgroundColor: isDetecting ? '#4CAF50' : '#FF9800'},
-              ]}
+              style={[styles.statusDot, { backgroundColor: isDetecting ? '#4CAF50' : '#FF9800' }]}
             />
             <Text style={styles.statusText}>
               {isDetecting ? `Detecting (${fps} fps)` : 'Ready'}
@@ -174,20 +183,14 @@ function App(): React.JSX.Element {
 
         <View style={styles.infoRow}>
           <Text style={styles.infoLabel}>Face Detected</Text>
-          <Text
-            style={[
-              styles.infoValue,
-              {color: faceResult?.detected ? '#4CAF50' : '#FF5252'},
-            ]}>
+          <Text style={[styles.infoValue, { color: faceResult?.detected ? '#4CAF50' : '#FF5252' }]}>
             {faceResult?.detected ? '✅ Yes' : '❌ No'}
           </Text>
         </View>
 
         <View style={styles.infoRow}>
           <Text style={styles.infoLabel}>Landmarks</Text>
-          <Text style={styles.infoValue}>
-            {faceResult?.landmarkCount || 0} / 468
-          </Text>
+          <Text style={styles.infoValue}>{faceResult?.landmarkCount || 0} / 468</Text>
         </View>
 
         <View style={styles.infoRow}>
@@ -210,10 +213,7 @@ function App(): React.JSX.Element {
         {/* Controls */}
         <View style={styles.controls}>
           <TouchableOpacity
-            style={[
-              styles.controlButton,
-              {backgroundColor: isDetecting ? '#FF5252' : '#4CAF50'},
-            ]}
+            style={[styles.controlButton, { backgroundColor: isDetecting ? '#FF5252' : '#4CAF50' }]}
             onPress={isDetecting ? stopDetection : startDetection}>
             <Text style={styles.controlButtonText}>
               {isDetecting ? '⏹ Stop' : '▶️ Start Detection'}
@@ -226,7 +226,7 @@ function App(): React.JSX.Element {
 }
 
 const styles = StyleSheet.create({
-  container: {flex: 1, backgroundColor: '#1a1a2e'},
+  container: { flex: 1, backgroundColor: '#1a1a2e' },
   centered: {
     flex: 1,
     justifyContent: 'center',
@@ -238,16 +238,16 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     backgroundColor: '#16213e',
   },
-  headerTitle: {fontSize: 24, fontWeight: 'bold', color: '#FF6B6B'},
-  headerSubtitle: {fontSize: 14, color: '#a0a0b0', marginTop: 2},
-  title: {fontSize: 22, fontWeight: 'bold', color: '#fff', marginBottom: 10},
+  headerTitle: { fontSize: 24, fontWeight: 'bold', color: '#FF6B6B' },
+  headerSubtitle: { fontSize: 14, color: '#a0a0b0', marginTop: 2 },
+  title: { fontSize: 22, fontWeight: 'bold', color: '#fff', marginBottom: 10 },
   button: {
     backgroundColor: '#FF6B6B',
     paddingHorizontal: 30,
     paddingVertical: 12,
     borderRadius: 10,
   },
-  buttonText: {color: '#fff', fontSize: 16, fontWeight: '600'},
+  buttonText: { color: '#fff', fontSize: 16, fontWeight: '600' },
   cameraContainer: {
     height: 280,
     margin: 16,
@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     backgroundColor: '#000',
   },
-  overlay: {position: 'absolute', top: 12, left: 12, right: 12},
+  overlay: { position: 'absolute', top: 12, left: 12, right: 12 },
   statusBadge: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -265,8 +265,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignSelf: 'flex-start',
   },
-  statusDot: {width: 8, height: 8, borderRadius: 4, marginRight: 6},
-  statusText: {color: '#fff', fontSize: 12, fontWeight: '600'},
+  statusDot: { width: 8, height: 8, borderRadius: 4, marginRight: 6 },
+  statusText: { color: '#fff', fontSize: 12, fontWeight: '600' },
   expressionBadge: {
     position: 'absolute',
     right: 0,
@@ -276,7 +276,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 20,
   },
-  expressionText: {color: '#fff', fontSize: 14, fontWeight: '600'},
+  expressionText: { color: '#fff', fontSize: 14, fontWeight: '600' },
   infoPanel: {
     flex: 1,
     backgroundColor: '#16213e',
@@ -298,16 +298,16 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255,255,255,0.1)',
   },
-  infoLabel: {fontSize: 14, color: '#a0a0b0'},
-  infoValue: {fontSize: 14, color: '#fff', fontWeight: '600'},
-  controls: {flexDirection: 'row', gap: 12, marginTop: 16},
+  infoLabel: { fontSize: 14, color: '#a0a0b0' },
+  infoValue: { fontSize: 14, color: '#fff', fontWeight: '600' },
+  controls: { flexDirection: 'row', gap: 12, marginTop: 16 },
   controlButton: {
     flex: 1,
     paddingVertical: 12,
     borderRadius: 10,
     alignItems: 'center',
   },
-  controlButtonText: {color: '#fff', fontSize: 14, fontWeight: '600'},
+  controlButtonText: { color: '#fff', fontSize: 14, fontWeight: '600' },
 });
 
 export default App;
