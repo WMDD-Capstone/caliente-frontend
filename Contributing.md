@@ -1,21 +1,21 @@
 # Contributing to Caliente Frontend
 
-Guidelines for contributing to our React Native Expo project.
+Guidelines for contributing to our React Native CLI project.
 
 ---
 
-## 🔄 Workflow
+## Workflow
 
 1. Create branch from `dev`: `git checkout -b feature/your-feature`
 2. Make changes
-3. Run checks: `npm run lint && npm run type-check && npm run format`
+3. Run checks: `npm run lint`
 4. Test on iOS & Android
 5. Commit & push
 6. Create PR to `dev`
 
 ---
 
-## 🌿 Branch Strategy
+## Branch Strategy
 
 - **`main`** - Production (a individual deploying)
 - **`dev`** - Integration branch (merge Bitna, Erald)
@@ -26,7 +26,7 @@ Guidelines for contributing to our React Native Expo project.
 
 ---
 
-## 💬 Commit Messages
+## Commit Messages
 
 Format: `<type>: <description>`
 
@@ -46,12 +46,12 @@ Format: `<type>: <description>`
 ```bash
 feat: add video recording screen
 fix: resolve Android camera crash
-chore: update expo SDK to 54.0
+chore: update react-native to 0.74
 ```
 
 ---
 
-## 📝 File Naming
+## File Naming
 
 **Components (React Native)**
 
@@ -71,7 +71,7 @@ chore: update expo SDK to 54.0
 
 ---
 
-## 🎨 Code Style
+## Code Style
 
 - **ESLint + Prettier** enforced
 - **2 spaces** indentation, **semicolons** required
@@ -85,31 +85,31 @@ chore: update expo SDK to 54.0
 - Prefer `interface` for objects
 
 ```typescript
-// ✅ Good
+// Good
 interface VideoCardProps {
   videoId: string;
   onPress: () => void;
 }
 
-// ❌ Bad
+// Bad
 const VideoCard = (props: any) => {...}
 ```
 
 ---
 
-## 🎨 Styling with Tailwind
+## Styling with NativeWind
 
 - Use **NativeWind (Tailwind CSS)** for all styling
 - **No inline styles** unless absolutely necessary
 
 ```typescript
-// ✅ Good - Tailwind classes
+// Good - Tailwind classes
 <View className="p-4 bg-white rounded-lg">
   <Text className="text-lg font-bold">Title</Text>
 </View>
 
 
-// ❌ Bad - inline styles
+// Bad - inline styles
 <View style={{ padding: 16, backgroundColor: '#fff', borderRadius: 8 }}>
   <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Title</Text>
 </View>
@@ -117,23 +117,21 @@ const VideoCard = (props: any) => {...}
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ```bash
-npm run lint          # Lint code
-npm run type-check    # Type check
+npm run lint           # Lint code
+npm test               # Run tests
 ```
 
 **Before PR:**
 
-- [ ] Type check passes
 - [ ] Linter passes
-- [ ] Code formatted
 - [ ] Tested on iOS & Android
 
 ---
 
-## 🔍 Pull Request
+## Pull Request
 
 **Before creating PR:**
 
@@ -168,12 +166,12 @@ Brief description
 
 ---
 
-## 🆘 Questions?
+## Questions?
 
-- Check [Expo Docs](https://docs.expo.dev/)
+- Check [React Native Docs](https://reactnative.dev/docs/getting-started)
 - Ask in #caliente-dev Slack channel
 - Tag team lead in GitHub issues
 
 ---
 
-Thanks for contributing! 🚀
+Thanks for contributing!

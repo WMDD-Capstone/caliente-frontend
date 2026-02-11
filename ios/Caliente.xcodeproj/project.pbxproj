@@ -15,6 +15,12 @@
 		6673AB71628DA75CDAF55BBD /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = DFFE7C0E04CA8C68E097D1BF /* PrivacyInfo.xcprivacy */; };
 		7699B88040F8A987B510C191 /* libPods-Caliente-CalienteTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Caliente-CalienteTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		CA6B170D2F3C297600DE69DE /* face_landmarker.task in Resources */ = {isa = PBXBuildFile; fileRef = CA6B170C2F3C297600DE69DE /* face_landmarker.task */; };
+		CA6B170E2F3C297600DE69DE /* face_landmarker.task in Resources */ = {isa = PBXBuildFile; fileRef = CA6B170C2F3C297600DE69DE /* face_landmarker.task */; };
+		CA6B17122F3C312700DE69DE /* FaceLandmarkerModule.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B17112F3C312700DE69DE /* FaceLandmarkerModule.m */; };
+		CA6B17132F3C312700DE69DE /* FaceLandmarkerModule.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B17112F3C312700DE69DE /* FaceLandmarkerModule.m */; };
+		CA6B17152F3C313100DE69DE /* FaceLandmarkerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B17142F3C313100DE69DE /* FaceLandmarkerModule.swift */; };
+		CA6B17162F3C313100DE69DE /* FaceLandmarkerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B17142F3C313100DE69DE /* FaceLandmarkerModule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,10 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-Caliente.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Caliente.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Caliente/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Caliente-CalienteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Caliente-CalienteTests.release.xcconfig"; path = "Target Support Files/Pods-Caliente-CalienteTests/Pods-Caliente-CalienteTests.release.xcconfig"; sourceTree = "<group>"; };
+		CA6B170C2F3C297600DE69DE /* face_landmarker.task */ = {isa = PBXFileReference; lastKnownFileType = file; path = face_landmarker.task; sourceTree = "<group>"; };
+		CA6B170F2F3C2A7100DE69DE /* Caliente-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Caliente-Bridging-Header.h"; sourceTree = "<group>"; };
+		CA6B17112F3C312700DE69DE /* FaceLandmarkerModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FaceLandmarkerModule.m; sourceTree = "<group>"; };
+		CA6B17142F3C313100DE69DE /* FaceLandmarkerModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceLandmarkerModule.swift; sourceTree = "<group>"; };
 		DFFE7C0E04CA8C68E097D1BF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Caliente/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -89,6 +99,8 @@
 		13B07FAE1A68108700A75B9A /* Caliente */ = {
 			isa = PBXGroup;
 			children = (
+				CA6B17102F3C310B00DE69DE /* MediaPipe */,
+				CA6B170F2F3C2A7100DE69DE /* Caliente-Bridging-Header.h */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -127,6 +139,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				CA6B170C2F3C297600DE69DE /* face_landmarker.task */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -151,6 +164,15 @@
 				89C6BE57DB24E9ADA2F236DE /* Pods-Caliente-CalienteTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CA6B17102F3C310B00DE69DE /* MediaPipe */ = {
+			isa = PBXGroup;
+			children = (
+				CA6B17112F3C312700DE69DE /* FaceLandmarkerModule.m */,
+				CA6B17142F3C313100DE69DE /* FaceLandmarkerModule.swift */,
+			);
+			path = MediaPipe;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +230,7 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						LastSwiftMigration = 2620;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
@@ -239,6 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA6B170E2F3C297600DE69DE /* face_landmarker.task in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA6B170D2F3C297600DE69DE /* face_landmarker.task in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				6673AB71628DA75CDAF55BBD /* PrivacyInfo.xcprivacy in Resources */,
@@ -279,9 +304,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Caliente/Pods-Caliente-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Caliente/Pods-Caliente-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -340,9 +369,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Caliente-CalienteTests/Pods-Caliente-CalienteTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Caliente-CalienteTests/Pods-Caliente-CalienteTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -357,9 +390,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Caliente/Pods-Caliente-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Caliente/Pods-Caliente-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -374,9 +411,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Caliente-CalienteTests/Pods-Caliente-CalienteTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Caliente-CalienteTests/Pods-Caliente-CalienteTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -391,6 +432,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* CalienteTests.m in Sources */,
+				CA6B17152F3C313100DE69DE /* FaceLandmarkerModule.swift in Sources */,
+				CA6B17122F3C312700DE69DE /* FaceLandmarkerModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,7 +442,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				CA6B17132F3C312700DE69DE /* FaceLandmarkerModule.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				CA6B17162F3C313100DE69DE /* FaceLandmarkerModule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +464,7 @@
 			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-Caliente-CalienteTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -437,6 +483,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Caliente.app/Caliente";
 			};
 			name = Debug;
@@ -446,6 +494,7 @@
 			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-Caliente-CalienteTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = CalienteTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
@@ -461,6 +510,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Caliente.app/Caliente";
 			};
 			name = Release;
@@ -487,6 +537,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.wmdd.--PRODUCT-NAME-rfc1034identifier-";
 				PRODUCT_NAME = Caliente;
+				SWIFT_OBJC_BRIDGING_HEADER = "Caliente/Caliente-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -514,6 +565,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.wmdd.--PRODUCT-NAME-rfc1034identifier-";
 				PRODUCT_NAME = Caliente;
+				SWIFT_OBJC_BRIDGING_HEADER = "Caliente/Caliente-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -592,10 +644,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -667,10 +716,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

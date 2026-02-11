@@ -16,6 +16,8 @@ end
 
 target 'Caliente' do
   config = use_native_modules!
+  
+  pod 'MediaPipeTasksVision', '~> 0.10.14'
 
   use_react_native!(
     :path => config[:reactNativePath],
