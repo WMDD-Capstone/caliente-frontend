@@ -1,79 +1,107 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Caliente Frontend
 
-# Getting Started
+> WMDD Capstone Project - AI-Powered Mobile Coaching Platform for Content Creators
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)](https://www.typescriptlang.org/)
+[![Expo](https://img.shields.io/badge/Expo-~54.0-black)](https://expo.dev/)
+[![React](https://img.shields.io/badge/React-19.1-61dafb)](https://react.dev/)
+[![React Native](https://img.shields.io/badge/React%20Native-0.81.5-61dafb)](https://reactnative.dev/)
 
-## Step 1: Start the Metro Server
+---
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## 📱 About
 
-To start Metro, run the following command from the _root_ of your React Native project:
+**Caliente**(need to replace later) is a mobile-first AI-assisted coaching platform designed for short-form content creators. Whether you're a complete beginner or an experienced creator looking for direction, Caliente provides a private training space to practice, improve, and create better content.
 
-```bash
-# using npm
-npm start
+## 🚀 Getting Started
 
-# OR using Yarn
-yarn start
-```
-
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
+### Prerequisites
 
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+Node.js >= 18.x
+npm >= 9.x
+Expo Go app (for testing on physical devices)
 ```
 
-### For iOS
+### Installation
+
+1. **Clone the repository**
 
 ```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+   git clone https://github.com/your-org/caliente-frontend.git
+   cd caliente-frontend
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+2. **Install dependencies**
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+```bash
+   npm install
+```
 
-## Step 3: Modifying your App
+3. **Set up environment variables**
 
-Now that you have successfully run the app, let's modify it.
+```bash
+cp .env.example .env
+```
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+Edit `.env` with your actual values:
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+```env
+API_BASE_URL=http://localhost:3000/api
+API_KEY=your_api_key_here
+```
 
-## Congratulations! :tada:
+4. **Start the app**
 
-You've successfully run and modified your React Native App. :partying_face:
+```bash
+   npm start
+```
 
-### Now what?
+5. **Run on device**
+   - Press `i` for iOS
+   - Press `a` for Android
+   - Scan QR code for physical device
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+---
 
-# Troubleshooting
+## 📁 Project Structure
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+```
+src/
+├── app/                # Expo Router screens
+│   ├── _layout.tsx
+│   └── (tabs)/
+│       ├── index.tsx   # Home
+│       ├── record.tsx
+│       └── profile.tsx
+│
+├── components/        # Reusable components
+│   ├── ui/            # Buttons, inputs, cards
+│   └── features/      # Camera, feedback, charts
+│
+├── services/          # API & external services
+│   └── api/
+│
+├── hooks/             # Custom hooks
+│   ├── queries/       # Data fetching
+│   └── mutations/     # Data updates
+│
+├── store/             # Zustand stores
+├── utils/             # Helper functions
+├── constants/         # App constants
+└── types/             # TypeScript types
+```
 
-# Learn More
+---
 
-To learn more about React Native, take a look at the following resources:
+## 🔧 Available Scripts
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+```bash
+npm start              # Start dev server
+npm run android        # Run on Android
+npm run ios           # Run on iOS
+
+npm run lint          # Lint code
+npm run format        # Format code
+npm run type-check    # Type check
+```
